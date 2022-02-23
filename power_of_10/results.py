@@ -31,7 +31,9 @@ def search_event(event=None, meeting=None, venue=None, date_from=None, year=None
     if event is not None:
         url += f'event={str(event).replace(" ","+")}&'
     if meeting is not None:
-        url += f'title={meeting.replace(" ","+")}&'
+        meeting = meeting.replace(" ","+")
+        meeting = meeting.replace("#","%23")        
+        url += f'title={meeting}&'
     if venue is not None:
         url += f'venue={venue.replace(" ","+")}&'
     if date_from is not None:
